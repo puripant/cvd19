@@ -1,14 +1,22 @@
 body {
-  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   font-family: sans-serif;
   color: #E60268;
 }
 
-.content {
-  width: 400px;
-  margin: 10px auto;
+svg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .note {
-  text-align: right;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
 }

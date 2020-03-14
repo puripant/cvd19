@@ -1,5 +1,5 @@
-const width = 400;
-const height = 600;
+const width = document.getElementsByTagName('body')[0].offsetWidth;
+const height = document.getElementsByTagName('body')[0].offsetHeight;;
 
 const drag = simulation => {
   function dragstarted(d) {
@@ -45,7 +45,7 @@ const simulation = d3.forceSimulation(nodes)
   )
   .force("collide", d3.forceCollide()
     .strength(1)
-    .radius(15)
+    .radius(corona_num-5)
   )
   // .force("center", d3.forceCenter(width / 2, height / 2));
 
