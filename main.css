@@ -9,10 +9,6 @@ body {
   margin: 10px auto;
 }
 
-svg {
-  border: 0.5px solid #E60268;
-}
-
 .note {
   text-align: right;
 }
