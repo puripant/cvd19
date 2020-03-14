@@ -1,9 +1,18 @@
 body {
-  margin: 0 auto;
+  width: 100%;
   font-family: sans-serif;
+  color: #E60268;
+}
+
+.content {
+  width: 400px;
+  margin: 10px auto;
+}
+
+svg {
+  border: 0.5px solid #E60268;
 }
 
 .note {
-  width: 400px;
   text-align: right;
 }
