@@ -3,7 +3,7 @@ const height = document.getElementsByTagName('body')[0].offsetHeight;;
 
 const drag = simulation => {
   function dragstarted(d) {
-    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    if (!d3.event.active) simulation.alphaTarget(1).restart();
     d.fx = d.x;
     d.fy = d.y;
   }
@@ -33,17 +33,18 @@ for (let i = 1; i <= corona_num; i++) {
   links.push({ source: 0, target: i, value: 1 });
 }
 
+const link_length = 100;
 const simulation = d3.forceSimulation(nodes)
   .force("link", d3.forceLink(links)
     .id(d => d.id)
-    .distance(100)
+    .distance(link_length)
   )
   .force("charge", d3.forceManyBody()
     .strength(-10)
   )
   .force("collide", d3.forceCollide()
     .strength(1)
-    .radius(corona_num-5)
+    .radius(2*Math.PI*link_length / corona_num / 2)
   )
 
 const svg = d3.select("svg");
