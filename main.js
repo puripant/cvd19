@@ -26,12 +26,10 @@ const drag = simulation => {
 }
 
 const corona_num = 20;
-let nodes = [{ id: 0, group: 0 }] //, { id: 1, group: "eyes"}, { id: 2, group: "eyes"} ]; //body & eyes
+let nodes = [{ id: 0 }];
 let links = [];
-// links.push({ source: 0, target: 1, value: 0 });
-// links.push({ source: 0, target: 2, value: 0 });
-for (let i = 3; i < corona_num+3; i++) {
-  nodes.push({ id: i, gorup: 2 })
+for (let i = 1; i <= corona_num; i++) {
+  nodes.push({ id: i })
   links.push({ source: 0, target: i, value: 1 });
 }
 
@@ -47,7 +45,6 @@ const simulation = d3.forceSimulation(nodes)
     .strength(1)
     .radius(corona_num-5)
   )
-  // .force("center", d3.forceCenter(width / 2, height / 2));
 
 const svg = d3.select("svg");
 
@@ -64,8 +61,8 @@ const node = svg.append("g")
   .selectAll("circle")
   .data(nodes)
   .join("circle")
+    .attr("fill", "#E60268")
     .attr("r", d => (d.id === 0) ? 80 : 10)
-    .attr("fill", d => (d.group === "eyes") ? "white" : "#E60268")
     .call(drag(simulation));
 
 simulation.on("tick", () => {
